@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Files from './Files';
 import { Button, Card } from 'react-bootstrap';
 
-const Details = ({ url, user, repo, branch }) => {
+const Details = ({ url, user, repo, branch, token }) => {
 	const [ content, setContent ] = useState('');
 	const [ ready2, setReady2 ] = useState(true);
 
@@ -10,19 +10,20 @@ const Details = ({ url, user, repo, branch }) => {
 		() => {
 			(async () => {
 				const result = await fetch(url, {
-					headers: { Authorization: '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' }
+					headers: { Authorization: token }
 				});
 				const contents = await result.json();
 
 				setContent(contents);
 			})();
 		},
-		[ url ]
+		[ url, token ]
 	);
 
-	const getReady2 = (state) => (e) => {
+	const getReady2 = () => (e) => {
 		e.preventDefault();
-		setReady2(state);
+		if (ready2) setReady2(false);
+		else setReady2(true);
 	};
 
 	const getCount = () => {
@@ -74,7 +75,7 @@ const Details = ({ url, user, repo, branch }) => {
 							<br />
 						</Card.Header>
 						<Card.Body>
-							<Button variant="light" onClick={getReady2(false)}>
+							<Button variant="light" onClick={getReady2()}>
 								Show files
 							</Button>
 						</Card.Body>
