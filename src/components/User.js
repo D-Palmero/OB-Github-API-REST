@@ -7,10 +7,7 @@ const User = ({ user }) => {
 	const [ repo, setRepo ] = useState('');
 	const [ branch, setBranch ] = useState('');
 	const [ url, setUrl ] = useState('');
-	/*
-    *   Enter your Token
-    */
-	const [ token ] = useState('');
+	const [ token ] = useState('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');
 
 	const getReady = (commit_url, repo, branch, state) => (e) => {
 		e.preventDefault();

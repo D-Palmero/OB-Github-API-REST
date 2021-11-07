@@ -57,7 +57,7 @@ const Commits = ({ url, user, repo, branch, getReady, token }) => {
 					</div>
 				</div>
 			) : (
-				<p>Couldn't find any repository :(</p>
+				<p>Couldn't find any commit :(</p>
 			)}
 			<br />
 			<Button onClick={getReady('', '', '', true)}>Go Back</Button>

@@ -19,9 +19,9 @@ const Lines = ({ url }) => {
 	return (
 		<Card>
 			{file.length > 0 ? (
-				<Card.Text>{(file.match(/\n/g) || '').length} líneas</Card.Text>
+				<Card.Text>{(file.match(/\n/g) || '').length} Lines</Card.Text>
 			) : (
-				<h4>No se pudieron contar las líneas</h4>
+				<h4>Couldn't get lines :(</h4>
 			)}
 		</Card>
 	);

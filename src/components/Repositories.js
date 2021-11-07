@@ -24,7 +24,7 @@ const Repositories = ({ user, getReady, token }) => {
 				<Card bg="primary" text="white">
 					<Card.Header>
 						<br />
-						<h2>Tus repositorios son:</h2>
+						<h2>Repositories:</h2>
 						<br />
 					</Card.Header>
 					{repositories.map((repository, index) => {
@@ -54,7 +54,7 @@ const Repositories = ({ user, getReady, token }) => {
 					})}
 				</Card>
 			) : (
-				<p>El usuario no tiene repositorios</p>
+				<p>Couldn't find any repository :(</p>
 			)}
 		</div>
 	);
